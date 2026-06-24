@@ -8,6 +8,20 @@ daarin staat de uitdaging om de eerste 100 miljard priemgetallen onder de minuut
 
     
 
-In de eerste aanpak (approach) heb ik alle priem getallen onder 1 miljoen gevonden in 0.287 seconden.
+In de eerste aanpak (approach) heb ik alle priem getallen onder 1 miljoen gevonden in 0,287 seconden.
 Dus voor 1 miljard zou het betekenen dat het 287 seconden zou duren.
 En voor 100 miljard minstens (zal zeker langer duren aangezien je met hogere getallen werkt) 28700 seconden en dat is gelijk aan 7,97uren
+
+
+
+
+
+In de tweede aanpak heb ik alle priem getallen onder 1 miljoen gevonden in  0,011496 seconden.
+Door gebruik te maken van het zeef van eratosthenes (indien je er meer over wilt leren https://www.geeksforgeeks.org/c/c-program-to-implement-sieve-of-eratosthenes/)
+Dus voor 1 miljard zou het betekenen dat het 11,496 seconden zou duren.
+En voor 100 miljard minstens (zal zeker langer duren aangezien je met hogere getallen werkt) 1149,6 seconden en dat is gelijk aan 19,16 minuten
+Ik heb het gerunned voor 1 miljard getallen en dit is de output:
+Er zijn onder 1000000000: 50847534 priemgetallen gevonden
+Uitvoeringstijd: 21.866018 seconden
+
+

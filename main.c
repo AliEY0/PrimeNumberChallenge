@@ -2,7 +2,8 @@
 #include "prime_api.h"
 
 int main() {
-    first_attempt();
+    //first_attempt();
+    second_attempt();
     return 0;
 }
 

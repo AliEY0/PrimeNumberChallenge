@@ -13,3 +13,5 @@
 
 int is_prime(int n);
 void first_attempt();
+void second_attempt();
+
