@@ -35,6 +35,7 @@ Namelijk segmented sieves dat is een truc om het werk op te splitsen in kleinere
 Daarmee bedoel ik dat je in de tweede aanpak werkte met 1 grote blok aan memory dat betekent dat je constant naar ram moet schrijven.
 Maar met segmented sieves deel je die grote blok (1 miljard bytes) op in S (S is 100000 in mijn derde aanpak) delen, dus je deelt 1 Miljard door S.
 En zoveel blokken moet je dan verwerken. Het voordeel hierin is dat zon kleine blok meestal in de CPU caches past. En dat je daardoor betere resultaten opvangt.
+(Op deze url kan je er meer over lezen: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html#segmented-sieve)
 Ik heb het gerunned voor 1 miljard getallen en dit is de output:
 Er zijn onder 1000000000: 50847534 priemgetallen gevonden
 Uitvoeringstijd: 11.005430 seconden
