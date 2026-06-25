@@ -4,7 +4,7 @@
 een challenge gebaseerd op de volgende reddit post: "https://www.reddit.com/r/learnprogramming/comments/du8bii/find_first_100_billion_primes/"
 daarin staat de uitdaging om de eerste 100 miljard priemgetallen onder de minuut te vinden.
 
-
+Huidige Record 1 miljard priemgetallen in 11.00 seconden gevonden.  
 
     
 

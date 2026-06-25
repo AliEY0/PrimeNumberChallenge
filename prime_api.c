@@ -4,17 +4,60 @@
 #include <stdio.h>
 #include "prime_api.h"
 #include <stdbool.h>
-int is_prime(int n) {
-    if(n < 2) return -1;
-    if(n == 2) return 1;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0)
-            return -1;
+
+void my_thread() {
+    START_CLOCK
+    int n = 1000000000; 
+    const int S = 100000;
+    int nsqrt = (int)sqrt((double)n);
+    char *is_prime = (char *)malloc((nsqrt + 2) * sizeof(char));
+    memset(is_prime, 1, nsqrt + 2);
+    int *primes = (int *)malloc((nsqrt + 1) * sizeof(int));
+    int prime_count = 0;
+    for (int i = 2; i <= nsqrt; i++) {
+        if (is_prime[i]) {
+            primes[prime_count++] = i;
+
+            if ((long long)i * i <= nsqrt) {
+                for (int j = i * i; j <= nsqrt; j += i)
+                    is_prime[j] = 0;
+            }
+        }
     }
-    return 1;
+    int result = 0;
+    char *block = (char *)malloc(S * sizeof(char));
+    for (int k = 0; k * S <= n; k++) {
+        memset(block, 1, S);
+        int start = k * S;
+        for (int idx = 0; idx < prime_count; idx++) {
+            int p = primes[idx];
+            int start_idx = (start + p - 1) / p;
+            int j = ((start_idx > p ? start_idx : p) * p) - start;
+            for (; j < S; j += p)
+                block[j] = 0;
+        }
+        if (k == 0) {
+            block[0] = 0;
+            block[1] = 0;
+        }
+        for (int i = 0; i < S && start + i <= n; i++) {
+            if (block[i])
+                result++;
+        }
+    }
+    free(block);
+    free(primes);
+    free(is_prime);
+    printf("Er zijn onder %d: %d priemgetallen gevonden\n", n, result);
+    END_CLOCK
+
 }
 
-void third_attempt(){
+void fourth_attempt() {
+
+}
+
+void third_attempt() {
     START_CLOCK
     int n = 1000000000; 
     const int S = 100000;
@@ -81,6 +124,16 @@ void second_attempt(){
     }
     printf("Er zijn onder %d: %d priemgetallen gevonden\n", n, tel);
     END_CLOCK
+}
+
+int is_prime(int n) {
+    if(n < 2) return -1;
+    if(n == 2) return 1;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0)
+            return -1;
+    }
+    return 1;
 }
 
 void first_attempt(){
